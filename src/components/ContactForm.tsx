@@ -47,14 +47,14 @@ export function ContactForm({ isOpen, onClose, serviceType }: ContactFormProps) 
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Get Started Today</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-xl sm:text-2xl">Get Started Today</DialogTitle>
+          <DialogDescription className="text-sm sm:text-base">
             Fill out this form and our experts will contact you within 24 hours with a customized solution for your business needs.
           </DialogDescription>
         </DialogHeader>
         
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <Label htmlFor="name">Full Name *</Label>
               <Input

@@ -44,31 +44,31 @@ export function ServicePageTemplate({
         backgroundImage={backgroundImage}
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Overview Section */}
-        <section className="mb-16">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <section className="mb-12 sm:mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">
                 About {title}
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
                 {description}
               </p>
               <div className="grid grid-cols-1 gap-3">
                 {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-center">
-                    <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
+                  <div key={index} className="flex items-start">
+                    <Check className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-gray-700">{benefit}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative">
+            <div className="relative order-first lg:order-last">
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1521791136064-7986c2920216?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw3fHxidXNpbmVzcyUyMG1lZXRpbmclMjBpbmRpYW58ZW58MXx8fHwxNzExNTQ3MjA5fDA&ixlib=rb-4.1.0&q=80&w=1080"
                 alt={title}
-                className="w-full h-96 object-cover rounded-lg shadow-lg"
+                className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -76,11 +76,11 @@ export function ServicePageTemplate({
 
         {/* Requirements and Documents Section */}
         {(requirements || documents) && (
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+          <section className="mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               Requirements & Documents
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               {requirements && (
                 <Card>
                   <CardContent className="p-6">
@@ -124,20 +124,20 @@ export function ServicePageTemplate({
 
         {/* Process Section */}
         {process && (
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+          <section className="mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               Our Process
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {process.map((step, index) => (
                 <Card key={index} className="text-center">
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 text-xl font-bold">
                       {step.step}
                     </div>
-                    <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                    <p className="text-gray-600 mb-3">{step.description}</p>
-                    <div className="flex items-center justify-center text-sm text-blue-600">
+                    <h3 className="text-base sm:text-lg font-semibold mb-2">{step.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-600 mb-3">{step.description}</p>
+                    <div className="flex items-center justify-center text-xs sm:text-sm text-blue-600">
                       <Clock className="w-4 h-4 mr-1" />
                       {step.duration}
                     </div>
@@ -158,18 +158,18 @@ export function ServicePageTemplate({
         {/* CTA Section */}
         <section className="text-center">
           <Card>
-            <CardContent className="p-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <CardContent className="p-6 sm:p-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Ready to Get Started?
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 px-2">
                 Get expert assistance with {title.toLowerCase()} and complete legal compliance
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button
                   size="lg"
                   onClick={() => setIsFormOpen(true)}
-                  className="bg-blue-600 hover:bg-blue-700"
+                  className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto"
                 >
                   Get Started Now
                 </Button>
@@ -177,11 +177,12 @@ export function ServicePageTemplate({
                   size="lg"
                   variant="outline"
                   onClick={() => setIsFormOpen(true)}
+                  className="w-full sm:w-auto"
                 >
                   Free Consultation
                 </Button>
               </div>
-              <p className="text-sm text-gray-500 mt-4">
+              <p className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">
                 Legal consultation is free of cost
               </p>
             </CardContent>

@@ -100,7 +100,7 @@ export function PopularRegistrations() {
                       ))}
                     </ul>
                     
-                    <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2">
                       <Button 
                         className="flex-1"
                         onClick={() => handleGetStarted(registration.title)}
@@ -113,7 +113,8 @@ export function PopularRegistrations() {
                         onClick={() => handleGetStarted(registration.title + " - More Details")}
                       >
                         <Info className="w-4 h-4 mr-2" />
-                        More Details
+                        <span className="hidden sm:inline">More Details</span>
+                        <span className="sm:hidden">Details</span>
                       </Button>
                     </div>
                   </CardContent>
