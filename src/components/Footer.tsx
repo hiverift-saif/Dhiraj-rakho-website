@@ -57,13 +57,13 @@ export function Footer() {
               </div>
               <div className="flex items-center">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-blue-400 flex-shrink-0" />
-                <span className="text-gray-400 text-sm sm:text-base">+91 XXXXX XXXXX</span>
+                <span className="text-gray-400 text-sm sm:text-base">+91 7631 999 888</span>
               </div>
               <div className="flex items-start">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-blue-400 mt-1 flex-shrink-0" />
                 <span className="text-gray-400 text-sm sm:text-base">
-                  Business Address,<br />
-                  City, State - 123456
+                  Vijay Nagar,<br />
+                  New Delhi - 110009
                 </span>
               </div>
             </div>
@@ -146,7 +146,7 @@ export function Footer() {
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/_dhirajrakho/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -157,12 +157,17 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 pt-6 sm:pt-8 mt-8 sm:mt-12">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
-            <p className="text-gray-400 text-xs sm:text-sm text-center md:text-left">
-              © 2024 Dhiraj Rakho. All rights reserved.
-            </p>
-            <p className="text-gray-400 text-xs sm:text-sm text-center md:text-right">
-              Made with ❤️ for Indian entrepreneurs
+          <div className="flex justify-center items-center">
+            <p className="text-gray-400 text-xs sm:text-sm text-center">
+              © www.dhirajrakho.com | Designed by{" "}
+              <a 
+                href="https://www.hiverift.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 transition-colors"
+              >
+                www.hiverift.com
+              </a>
             </p>
           </div>
         </div>

@@ -27,6 +27,7 @@ import { SoleProprietorshipPage } from "./pages/SoleProprietorshipPage";
 import { GenericServicePage } from "./components/GenericServicePage";
 import { LegalServicesPage } from "./pages/LegalServicesPage";
 import { ArchitectServicesPage } from "./pages/ArchitectServicesPage";
+import { PartnerPage } from "./pages/PartnerPage";
 
 function AppContent() {
   const { currentPage } = useRouter();
@@ -72,6 +73,8 @@ function AppContent() {
         return <AboutUsPage />;
       case 'contact-us':
         return <ContactUsPage />;
+      case 'partner-with-us':
+        return <PartnerPage />;
       case 'legal-services':
         return <LegalServicesPage />;
       case 'architect-services':

@@ -90,7 +90,7 @@ export function PrivacyPolicyPage() {
                 <p className="font-medium mb-1">Contact our Privacy Officer:</p>
                 <ul>
                   <li>Email: privacy@dhirajrakho.com</li>
-                  <li>Phone: +91 XXXXX XXXXX</li>
+                  <li>Phone: +91 7631 999 888</li>
                 </ul>
               </div>
             </div>

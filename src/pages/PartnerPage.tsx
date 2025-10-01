@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../co
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
+import { Label } from "../components/ui/label";
 import { 
   CheckCircle, 
   Users, 
@@ -21,6 +23,19 @@ import {
 
 export function PartnerPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    phone: "",
+    email: "",
+    city: "",
+    partnershipType: "",
+    currentBusiness: "",
+    experience: "",
+    clientBase: "",
+    investmentCapacity: "",
+    professionalCertification: "",
+    referralNetwork: ""
+  });
 
   const partnershipBenefits = [
     {
@@ -124,6 +139,12 @@ export function PartnerPage() {
   ];
 
   const handleGetStarted = () => {
+    setIsFormOpen(true);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Open contact form with the partnership application details
     setIsFormOpen(true);
   };
 
@@ -287,66 +308,337 @@ export function PartnerPage() {
 
             <Card>
               <CardContent className="p-8">
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <Label htmlFor="fullName" className="text-sm font-medium text-gray-700 mb-2">
                         Full Name *
-                      </label>
-                      <Input placeholder="Enter your full name" />
+                      </Label>
+                      <Input 
+                        id="fullName"
+                        placeholder="Enter your full name" 
+                        required
+                        value={formData.fullName}
+                        onChange={(e) => setFormData({...formData, fullName: e.target.value})}
+                      />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <Label htmlFor="phone" className="text-sm font-medium text-gray-700 mb-2">
                         Phone Number *
-                      </label>
-                      <Input placeholder="Enter your phone number" />
+                      </Label>
+                      <Input 
+                        id="phone"
+                        type="tel"
+                        placeholder="+91 98765 43210" 
+                        required
+                        value={formData.phone}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      />
                     </div>
                   </div>
                   
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-2">
                         Email Address *
-                      </label>
-                      <Input type="email" placeholder="Enter your email address" />
+                      </Label>
+                      <Input 
+                        id="email"
+                        type="email" 
+                        placeholder="your.email@example.com" 
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <Label htmlFor="city" className="text-sm font-medium text-gray-700 mb-2">
                         City/Location *
-                      </label>
-                      <Input placeholder="Enter your city" />
+                      </Label>
+                      <Input 
+                        id="city"
+                        placeholder="e.g., Mumbai, Delhi, Bangalore" 
+                        required
+                        value={formData.city}
+                        onChange={(e) => setFormData({...formData, city: e.target.value})}
+                      />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <Label htmlFor="partnershipType" className="text-sm font-medium text-gray-700 mb-2">
                       Partnership Type *
-                    </label>
-                    <Input placeholder="e.g., Business Consultant, CA Professional, Regional Partner" />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Current Business/Experience
-                    </label>
-                    <Textarea 
-                      placeholder="Tell us about your current business, experience, and why you want to partner with us..."
-                      className="min-h-[120px]"
-                    />
-                  </div>
-
-                  <div className="text-center">
-                    <Button 
-                      size="lg" 
-                      className="px-12"
-                      onClick={handleGetStarted}
+                    </Label>
+                    <Select 
+                      required
+                      value={formData.partnershipType}
+                      onValueChange={(value) => setFormData({...formData, partnershipType: value})}
                     >
-                      Submit Partnership Application
-                    </Button>
-                    <p className="text-sm text-gray-600 mt-4">
-                      Our team will review your application and get back to you within 24 hours
-                    </p>
+                      <SelectTrigger id="partnershipType">
+                        <SelectValue placeholder="Select partnership type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="business-consultant">Business Consultant</SelectItem>
+                        <SelectItem value="ca-legal-professional">CA/Legal Professional</SelectItem>
+                        <SelectItem value="regional-partner">Regional Partner</SelectItem>
+                        <SelectItem value="referral-partner">Referral Partner</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
+
+                  {/* Dynamic fields based on partnership type */}
+                  {formData.partnershipType === 'business-consultant' && (
+                    <>
+                      <div>
+                        <Label htmlFor="experience" className="text-sm font-medium text-gray-700 mb-2">
+                          Business Advisory Experience *
+                        </Label>
+                        <Select 
+                          required
+                          value={formData.experience}
+                          onValueChange={(value) => setFormData({...formData, experience: value})}
+                        >
+                          <SelectTrigger id="experience">
+                            <SelectValue placeholder="Select experience level" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="0-2">0-2 years</SelectItem>
+                            <SelectItem value="2-5">2-5 years</SelectItem>
+                            <SelectItem value="5-10">5-10 years</SelectItem>
+                            <SelectItem value="10+">10+ years</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="clientBase" className="text-sm font-medium text-gray-700 mb-2">
+                          Size of Existing Client Base *
+                        </Label>
+                        <Select 
+                          required
+                          value={formData.clientBase}
+                          onValueChange={(value) => setFormData({...formData, clientBase: value})}
+                        >
+                          <SelectTrigger id="clientBase">
+                            <SelectValue placeholder="Select client base size" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="0-10">0-10 clients</SelectItem>
+                            <SelectItem value="10-50">10-50 clients</SelectItem>
+                            <SelectItem value="50-100">50-100 clients</SelectItem>
+                            <SelectItem value="100+">100+ clients</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="currentBusiness" className="text-sm font-medium text-gray-700 mb-2">
+                          Current Business Services & Professional Network *
+                        </Label>
+                        <Textarea 
+                          id="currentBusiness"
+                          placeholder="Tell us about:&#10;• Your current consultancy services&#10;• Types of clients you serve&#10;• Your professional network&#10;• Why you want to expand with legal services"
+                          className="min-h-[140px]"
+                          required
+                          value={formData.currentBusiness}
+                          onChange={(e) => setFormData({...formData, currentBusiness: e.target.value})}
+                        />
+                      </div>
+                    </>
+                  )}
+
+                  {formData.partnershipType === 'ca-legal-professional' && (
+                    <>
+                      <div>
+                        <Label htmlFor="professionalCertification" className="text-sm font-medium text-gray-700 mb-2">
+                          Professional Certification/License *
+                        </Label>
+                        <Input 
+                          id="professionalCertification"
+                          placeholder="e.g., CA Membership Number, Bar Council ID" 
+                          required
+                          value={formData.professionalCertification}
+                          onChange={(e) => setFormData({...formData, professionalCertification: e.target.value})}
+                        />
+                      </div>
+
+                      <div>
+                        <Label htmlFor="experience" className="text-sm font-medium text-gray-700 mb-2">
+                          Years of Professional Practice *
+                        </Label>
+                        <Select 
+                          required
+                          value={formData.experience}
+                          onValueChange={(value) => setFormData({...formData, experience: value})}
+                        >
+                          <SelectTrigger id="experience">
+                            <SelectValue placeholder="Select experience level" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="0-2">0-2 years</SelectItem>
+                            <SelectItem value="2-5">2-5 years</SelectItem>
+                            <SelectItem value="5-10">5-10 years</SelectItem>
+                            <SelectItem value="10+">10+ years</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="currentBusiness" className="text-sm font-medium text-gray-700 mb-2">
+                          Practice Details & Client Relationships *
+                        </Label>
+                        <Textarea 
+                          id="currentBusiness"
+                          placeholder="Tell us about:&#10;• Your current practice areas&#10;• Size of client portfolio&#10;• Type of services you currently offer&#10;• Interest in business registration services"
+                          className="min-h-[140px]"
+                          required
+                          value={formData.currentBusiness}
+                          onChange={(e) => setFormData({...formData, currentBusiness: e.target.value})}
+                        />
+                      </div>
+                    </>
+                  )}
+
+                  {formData.partnershipType === 'regional-partner' && (
+                    <>
+                      <div>
+                        <Label htmlFor="experience" className="text-sm font-medium text-gray-700 mb-2">
+                          Business Setup/Management Experience *
+                        </Label>
+                        <Select 
+                          required
+                          value={formData.experience}
+                          onValueChange={(value) => setFormData({...formData, experience: value})}
+                        >
+                          <SelectTrigger id="experience">
+                            <SelectValue placeholder="Select experience level" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="0-2">0-2 years</SelectItem>
+                            <SelectItem value="2-5">2-5 years</SelectItem>
+                            <SelectItem value="5-10">5-10 years</SelectItem>
+                            <SelectItem value="10+">10+ years</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="investmentCapacity" className="text-sm font-medium text-gray-700 mb-2">
+                          Investment Capacity *
+                        </Label>
+                        <Select 
+                          required
+                          value={formData.investmentCapacity}
+                          onValueChange={(value) => setFormData({...formData, investmentCapacity: value})}
+                        >
+                          <SelectTrigger id="investmentCapacity">
+                            <SelectValue placeholder="Select investment range" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="5-10L">₹5-10 Lakhs</SelectItem>
+                            <SelectItem value="10-25L">₹10-25 Lakhs</SelectItem>
+                            <SelectItem value="25-50L">₹25-50 Lakhs</SelectItem>
+                            <SelectItem value="50L+">₹50+ Lakhs</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="currentBusiness" className="text-sm font-medium text-gray-700 mb-2">
+                          Local Market Knowledge & Business Plan *
+                        </Label>
+                        <Textarea 
+                          id="currentBusiness"
+                          placeholder="Tell us about:&#10;• Your knowledge of local business market&#10;• Existing infrastructure or office space&#10;• Team size and capabilities&#10;• Territory/cities you want to cover&#10;• Growth plans for the region"
+                          className="min-h-[140px]"
+                          required
+                          value={formData.currentBusiness}
+                          onChange={(e) => setFormData({...formData, currentBusiness: e.target.value})}
+                        />
+                      </div>
+                    </>
+                  )}
+
+                  {formData.partnershipType === 'referral-partner' && (
+                    <>
+                      <div>
+                        <Label htmlFor="referralNetwork" className="text-sm font-medium text-gray-700 mb-2">
+                          Size of Your Professional Network *
+                        </Label>
+                        <Select 
+                          required
+                          value={formData.referralNetwork}
+                          onValueChange={(value) => setFormData({...formData, referralNetwork: value})}
+                        >
+                          <SelectTrigger id="referralNetwork">
+                            <SelectValue placeholder="Select network size" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="small">Small (1-50 contacts)</SelectItem>
+                            <SelectItem value="medium">Medium (50-200 contacts)</SelectItem>
+                            <SelectItem value="large">Large (200-500 contacts)</SelectItem>
+                            <SelectItem value="extensive">Extensive (500+ contacts)</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="experience" className="text-sm font-medium text-gray-700 mb-2">
+                          Experience in Business Development/Sales *
+                        </Label>
+                        <Select 
+                          required
+                          value={formData.experience}
+                          onValueChange={(value) => setFormData({...formData, experience: value})}
+                        >
+                          <SelectTrigger id="experience">
+                            <SelectValue placeholder="Select experience level" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="0-1">0-1 years (Beginner)</SelectItem>
+                            <SelectItem value="1-3">1-3 years</SelectItem>
+                            <SelectItem value="3-5">3-5 years</SelectItem>
+                            <SelectItem value="5+">5+ years</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="currentBusiness" className="text-sm font-medium text-gray-700 mb-2">
+                          Network of Potential Clients & Communication Skills *
+                        </Label>
+                        <Textarea 
+                          id="currentBusiness"
+                          placeholder="Tell us about:&#10;• Types of contacts in your network (startups, SMEs, etc.)&#10;• Your communication and sales skills&#10;• Expected monthly referrals&#10;• Why you're interested in this opportunity"
+                          className="min-h-[140px]"
+                          required
+                          value={formData.currentBusiness}
+                          onChange={(e) => setFormData({...formData, currentBusiness: e.target.value})}
+                        />
+                      </div>
+                    </>
+                  )}
+
+                  {!formData.partnershipType && (
+                    <div className="text-center py-8 text-gray-500">
+                      Please select a partnership type above to continue
+                    </div>
+                  )}
+
+                  {formData.partnershipType && (
+                    <div className="text-center">
+                      <Button 
+                        type="submit"
+                        size="lg" 
+                        className="px-12"
+                      >
+                        Submit Partnership Application
+                      </Button>
+                      <p className="text-sm text-gray-600 mt-4">
+                        Our team will review your application and get back to you within 24 hours
+                      </p>
+                    </div>
+                  )}
                 </form>
               </CardContent>
             </Card>

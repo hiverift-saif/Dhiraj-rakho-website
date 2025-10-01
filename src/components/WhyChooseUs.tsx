@@ -71,7 +71,7 @@ export function WhyChooseUs() {
             <div className="mt-8">
               <Button size="lg" className="flex items-center gap-2 w-full sm:w-auto">
                 <Phone className="w-5 h-5" />
-                <span className="hidden sm:inline">Talk to Experts (+91 XXXXX XXXXX)</span>
+                <span className="hidden sm:inline">Talk to Experts (+91 7631 999 888)</span>
                 <span className="sm:hidden">Call Experts</span>
               </Button>
             </div>

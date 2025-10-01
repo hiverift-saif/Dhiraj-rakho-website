@@ -89,16 +89,26 @@ export function ContactForm({ isOpen, onClose, serviceType }: ContactFormProps) 
               required
             />
           </div>
+<div>
+  <Label htmlFor="partnerType">Partner Type</Label>
+  <Select
+    value={formData.partnerType}
+    onValueChange={(value) => handleChange("partnerType", value)}
+  >
+    <SelectTrigger>
+      <SelectValue placeholder="Select partner type" />
+    </SelectTrigger>
+    <SelectContent>
+      <SelectItem value="Individual">Individual</SelectItem>
+      <SelectItem value="Startup">Startup</SelectItem>
+      <SelectItem value="Small Business">Small Business</SelectItem>
+      <SelectItem value="Enterprise">Enterprise</SelectItem>
+      <SelectItem value="Consultant">Consultant</SelectItem>
+      <SelectItem value="Other">Other</SelectItem>
+    </SelectContent>
+  </Select>
+</div>
 
-          <div>
-            <Label htmlFor="company">Company/Business Name</Label>
-            <Input
-              id="company"
-              value={formData.company}
-              onChange={(e) => handleChange("company", e.target.value)}
-              placeholder="Your business name (optional)"
-            />
-          </div>
 
           <div>
             <Label htmlFor="service">Service Required *</Label>
@@ -135,12 +145,12 @@ export function ContactForm({ isOpen, onClose, serviceType }: ContactFormProps) 
             />
           </div>
 
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          {/* <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <p className="text-sm text-blue-800">
               <span className="font-semibold">✓ Legal consultation is free of cost</span><br />
               <span className="text-blue-600">Our experts will provide you with complete guidance and transparent pricing with no hidden charges.</span>
             </p>
-          </div>
+          </div> */}
 
           <div className="flex gap-3 pt-4">
             <Button type="button" variant="outline" onClick={onClose} className="flex-1">

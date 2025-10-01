@@ -1191,23 +1191,23 @@ export function Header() {
 
   return (
     <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-        <div className="flex justify-between items-center h-14 lg:h-16">
+      <div className="max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-6 xl:px-8">
+        <div className="flex justify-between items-center h-14 lg:h-16 gap-2">
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer" onClick={() => handleNavigation('home')}>
-            <h1 className="text-lg lg:text-xl font-bold text-primary">Dhiraj Rakho</h1>
+            <h1 className="text-base lg:text-lg xl:text-xl font-bold text-primary whitespace-nowrap">Dhiraj Rakho</h1>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6" ref={dropdownRef}>
+          {/* Desktop Navigation - Center */}
+          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-3 flex-1 justify-center" ref={dropdownRef}>
             {/* Registrations Dropdown */}
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('registrations')}
-                className="flex items-center space-x-1 text-gray-700 hover:text-primary transition-colors px-2 py-1"
+                className="flex items-center space-x-0.5 text-gray-700 hover:text-primary transition-colors px-1.5 xl:px-2 py-1"
               >
-                <span className="text-sm xl:text-base">Registrations</span>
-                <ChevronDown className={`w-3 h-3 xl:w-4 xl:h-4 transition-transform ${dropdownOpen === 'registrations' ? 'rotate-180' : ''}`} />
+                <span className="text-xs xl:text-sm">Registrations</span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${dropdownOpen === 'registrations' ? 'rotate-180' : ''}`} />
               </button>
               
               {dropdownOpen === 'registrations' && (
@@ -1221,10 +1221,10 @@ export function Header() {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('compliance')}
-                className="flex items-center space-x-1 text-gray-700 hover:text-primary transition-colors px-2 py-1"
+                className="flex items-center space-x-0.5 text-gray-700 hover:text-primary transition-colors px-1.5 xl:px-2 py-1"
               >
-                <span className="text-sm xl:text-base">Compliance</span>
-                <ChevronDown className={`w-3 h-3 xl:w-4 xl:h-4 transition-transform ${dropdownOpen === 'compliance' ? 'rotate-180' : ''}`} />
+                <span className="text-xs xl:text-sm">Compliance</span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${dropdownOpen === 'compliance' ? 'rotate-180' : ''}`} />
               </button>
               
               {dropdownOpen === 'compliance' && (
@@ -1238,10 +1238,10 @@ export function Header() {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('ipr')}
-                className="flex items-center space-x-1 text-gray-700 hover:text-primary transition-colors px-2 py-1"
+                className="flex items-center space-x-0.5 text-gray-700 hover:text-primary transition-colors px-1.5 xl:px-2 py-1"
               >
-                <span className="text-sm xl:text-base">IPR</span>
-                <ChevronDown className={`w-3 h-3 xl:w-4 xl:h-4 transition-transform ${dropdownOpen === 'ipr' ? 'rotate-180' : ''}`} />
+                <span className="text-xs xl:text-sm">IPR</span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${dropdownOpen === 'ipr' ? 'rotate-180' : ''}`} />
               </button>
               
               {dropdownOpen === 'ipr' && (
@@ -1255,10 +1255,10 @@ export function Header() {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('taxation')}
-                className="flex items-center space-x-1 text-gray-700 hover:text-primary transition-colors px-2 py-1"
+                className="flex items-center space-x-0.5 text-gray-700 hover:text-primary transition-colors px-1.5 xl:px-2 py-1"
               >
-                <span className="text-sm xl:text-base">Taxation</span>
-                <ChevronDown className={`w-3 h-3 xl:w-4 xl:h-4 transition-transform ${dropdownOpen === 'taxation' ? 'rotate-180' : ''}`} />
+                <span className="text-xs xl:text-sm">Taxation</span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${dropdownOpen === 'taxation' ? 'rotate-180' : ''}`} />
               </button>
               
               {dropdownOpen === 'taxation' && (
@@ -1272,10 +1272,10 @@ export function Header() {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('consultation')}
-                className="flex items-center space-x-1 text-gray-700 hover:text-primary transition-colors px-2 py-1"
+                className="flex items-center space-x-0.5 text-gray-700 hover:text-primary transition-colors px-1.5 xl:px-2 py-1"
               >
-                <span className="text-sm xl:text-base">Consultation</span>
-                <ChevronDown className={`w-3 h-3 xl:w-4 xl:h-4 transition-transform ${dropdownOpen === 'consultation' ? 'rotate-180' : ''}`} />
+                <span className="text-xs xl:text-sm">Consultation</span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${dropdownOpen === 'consultation' ? 'rotate-180' : ''}`} />
               </button>
               
               {dropdownOpen === 'consultation' && (
@@ -1289,10 +1289,10 @@ export function Header() {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('more')}
-                className="flex items-center space-x-1 text-gray-700 hover:text-primary transition-colors px-2 py-1"
+                className="flex items-center space-x-0.5 text-gray-700 hover:text-primary transition-colors px-1.5 xl:px-2 py-1"
               >
-                <span className="text-sm xl:text-base">More</span>
-                <ChevronDown className={`w-3 h-3 xl:w-4 xl:h-4 transition-transform ${dropdownOpen === 'more' ? 'rotate-180' : ''}`} />
+                <span className="text-xs xl:text-sm">More</span>
+                <ChevronDown className={`w-3 h-3 transition-transform ${dropdownOpen === 'more' ? 'rotate-180' : ''}`} />
               </button>
               
               {dropdownOpen === 'more' && (
@@ -1307,7 +1307,7 @@ export function Header() {
               <button
                 key={item.page}
                 onClick={() => handleNavigation(item.page)}
-                className={`transition-colors px-2 py-1 text-sm xl:text-base ${
+                className={`transition-colors px-1.5 xl:px-2 py-1 text-xs xl:text-sm whitespace-nowrap ${
                   currentPage === item.page
                     ? "text-primary font-medium border-b-2 border-primary pb-1"
                     : "text-gray-700 hover:text-primary"
@@ -1318,17 +1318,38 @@ export function Header() {
             ))}
           </nav>
 
+          {/* Right Side Buttons - Desktop */}
+          <div className="hidden lg:flex items-center space-x-1 xl:space-x-2 flex-shrink-0">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => handleNavigation('contact-us')}
+              className="text-xs xl:text-sm px-2 xl:px-3"
+            >
+              Contact
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handleNavigation('partner-with-us')}
+              className="text-xs xl:text-sm px-2 xl:px-3 whitespace-nowrap"
+            >
+              Partner with Us
+            </Button>
+          </div>
+
           {/* Medium screens navigation */}
-          <nav className="hidden md:flex lg:hidden items-center space-x-2">
-            {/* Compact dropdowns for medium screens */}
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown('services')}
-                className="flex items-center space-x-1 text-gray-700 hover:text-primary transition-colors px-2 py-1"
-              >
-                <span className="text-sm">Services</span>
-                <ChevronDown className={`w-3 h-3 transition-transform ${dropdownOpen === 'services' ? 'rotate-180' : ''}`} />
-              </button>
+          <div className="hidden md:flex lg:hidden items-center space-x-2 flex-1 justify-end">
+            <nav className="flex items-center space-x-2">
+              {/* Compact dropdowns for medium screens */}
+              <div className="relative">
+                <button
+                  onClick={() => toggleDropdown('services')}
+                  className="flex items-center space-x-1 text-gray-700 hover:text-primary transition-colors px-2 py-1"
+                >
+                  <span className="text-sm">Services</span>
+                  <ChevronDown className={`w-3 h-3 transition-transform ${dropdownOpen === 'services' ? 'rotate-180' : ''}`} />
+                </button>
               
               {dropdownOpen === 'services' && (
                 <div className="absolute top-full right-0 mt-1 w-64 bg-white shadow-xl border border-gray-200 rounded-lg z-50 max-h-96 overflow-y-auto">
@@ -1374,20 +1395,31 @@ export function Header() {
               )}
             </div>
 
-            {navigationItems.map((item) => (
-              <button
-                key={item.page}
-                onClick={() => handleNavigation(item.page)}
-                className={`transition-colors px-2 py-1 text-sm ${
-                  currentPage === item.page
-                    ? "text-primary font-medium"
-                    : "text-gray-700 hover:text-primary"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
+              {navigationItems.map((item) => (
+                <button
+                  key={item.page}
+                  onClick={() => handleNavigation(item.page)}
+                  className={`transition-colors px-2 py-1 text-sm ${
+                    currentPage === item.page
+                      ? "text-primary font-medium"
+                      : "text-gray-700 hover:text-primary"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+            
+            {/* Right Side Buttons - Medium screens */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => handleNavigation('contact-us')}
+              className="text-xs"
+            >
+              Contact
+            </Button>
+          </div>
 
 
 

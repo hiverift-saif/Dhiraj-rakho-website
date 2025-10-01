@@ -45,15 +45,15 @@ export function ContactUsPage() {
     {
       icon: Phone,
       title: "Call Us",
-      primary: "+91 XXXXX XXXXX",
-      secondary: "+91 XXXXX XXXXX",
+      primary: "+91 7631 999 888",
+      secondary: "+91 7631 999 888",
       description: "Available Mon-Sat, 9 AM - 7 PM"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      primary: "Business Address",
-      secondary: "City, State - 123456",
+      primary: "Vijay Nagar",
+      secondary: "New Delhi - 110009",
       description: "Schedule an appointment"
     }
   ];

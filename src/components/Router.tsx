@@ -2,7 +2,7 @@ import { useState, createContext, useContext, ReactNode } from 'react';
 
 type Page = 'home' | 'registrations' | 'compliance' | 'ipr' | 'taxation' | 'consultation' | 'more' | 'partner' | 
   'private-limited-company' | 'llp-registration' | 'partnership-firm' | 'ngo-registration' | 'trademark-registration' | 'gst-registration' |
-  'about-us' | 'contact-us' | 'terms-conditions' | 'privacy-policy' | 'refund-policy' | 'careers' |
+  'about-us' | 'contact-us' | 'partner-with-us' | 'legal-services' | 'architect-services' | 'terms-conditions' | 'privacy-policy' | 'refund-policy' | 'careers' |
   // Compliance Services
   'msme-registration' | 'epf-registration' | 'shop-establishment-registration' | 'llp-annual-compliance' |
   'annual-compliance-private-limited' | 'outsource-bookkeeping' | 'bookkeeping-accounting' | 'nidhi-company-compliance' |
@@ -12,6 +12,39 @@ type Page = 'home' | 'registrations' | 'compliance' | 'ipr' | 'taxation' | 'cons
   'revival-struck-off' | 'change-director' | 'add-designated-partner' | 'dir-3-kyc' | 'strike-off-section-8' |
   'winding-up-company' | 'director-appointment' | 'increase-authorized-capital' | 'removal-director' |
   'change-auditor' | 'issue-shares' | 'transfer-shares' | 'convert-partnership-llp' |
+  // IPR Services
+  'trademark-renewal' | 'trademark-objection' | 'trademark-opposition' | 'international-trademark' |
+  'trademark-rectification' | 'trademark-ecommerce' | 'trademark-hearing' | 'trademark-objection-response' |
+  'trademark-infringement' | 'trademark-assignment' | 'copyright-registration' | 'patent-registration' |
+  'design-registration' | 'ip-dispute' |
+  // Taxation Services - Income Tax
+  'income-tax-return' | 'tds-return' | 'pf-return' | 'itr-2-form' | 'itr-7-form' | 'itr-1-form' | '80-iac-exemption' |
+  // Taxation Services - GST
+  'gst-return-filing' | 'gstr9-return' | 'cancel-gst' | 'virtual-place-gst' | 'additional-place-gst' |
+  'gst-ecommerce' | 'gst-return-ecommerce' | 'input-tax-credit' | 'gst-e-invoice' | 'e-way-bill' |
+  // Consultation Services - CA Services
+  'online-ca-services' | 'mergers-acquisitions' | 'financial-consultancy' | 'financial-modeling' |
+  // Consultation Services - Business Consultants
+  'payment-gateway' | 'startup-planning' | 'csr-registration' | 'pitch-deck' |
+  // Consultation Services - Lawyer & Expert
+  'consumer-complaint' | 'cheque-bounce' |
+  // More Services - Environmental
+  'consent-establish' | 'environmental-due-diligence' | 'epr-registration' | 'environmental-auditing' |
+  'plastic-waste-auth' | 'epr-e-waste' | 'eia-assessment' |
+  // More Services - Agreement and Contracts
+  'mou' | 'joint-venture' | 'franchise-agreement' | 'shareholder-agreement' | 'founders-agreement' |
+  'legal-heir-certificate' | 'sale-deed' | 'terms-use-agreement' | 'master-service-agreement' |
+  'succession-certificate' | 'gift-deed' | 'relinquishment-deed' | 'transfer-pricing' | 'nda' |
+  'share-purchase' | 'service-level-agreement' | 'probate-will' | 'fire-department-noc' | 'non-compete' |
+  // More Services - Tool & Calculators
+  'nic-code' | 'company-name-check' | 'search-company' |
+  // More Services - Resources
+  'blog' | 'guides' |
+  // More Services - Regulatory
+  'nbfc-registration' | 'nbfc-compliance' | 'payment-bank-license' | 'payment-gateway-license' |
+  'legal-notice-defamation' | 'legal-notice' |
+  // More Services - Get to Know Us
+  'reviews' |
   // Company Registration
   'public-limited-company' | 'trust-registration' | 'sole-proprietorship' | 'opc-registration' | 'society-registration' |
   'startup-india' | 'startup-registration' | 'virtual-office' | 'nidhi-company' | 'microfinance-company' | 'producer-company' |

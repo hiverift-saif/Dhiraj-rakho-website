@@ -86,7 +86,7 @@ export function TermsConditionsPage() {
               </p>
               <ul className="mt-2 text-blue-800">
                 <li>Email: info@dhirajrakho.com</li>
-                <li>Phone: +91 XXXXX XXXXX</li>
+                <li>Phone: +91 7631 999 888</li>
               </ul>
             </div>
           </CardContent>
